@@ -1,0 +1,128 @@
+body{
+    overflow-y: hidden;
+}
+.background-main{
+  background-color: #ede7c7;
+  width: 100%;
+  height: 100%;
+
+}
+.background-primary-left{
+  background-color: #ca1a0e;
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 100;
+}
+.background-primary-right{
+  background-color: #ca1a0e;
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+.background-secondary-left{
+  background-color: #222222;
+  width: 19%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+.background-secondary-right{
+  background-color: #222222;
+  width: 19%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 100;
+}
+
+.container_body{
+
+  height: 1080px;
+}
+.landing{
+
+  width: auto;
+  height: 600px;
+  background-color: #e9e9e9;
+  top: 150px;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+.user-creation{
+  width: auto;
+  height: 800px;
+  background-color: #e9e9e9;
+  top: 70px;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+.party-creation{
+  width: auto;
+  height: 650px;
+  background-color: #e9e9e9;
+  top: 70px;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+.landing_form{
+  top:50px;
+}
+.btn{
+  border: solid 2px black;
+  border-radius: 15px;
+}
+._20px_offset{
+  padding-top: 20px;
+
+}
+._40px_offset{
+  padding-top: 40px;
+}
+._10px_offset{
+  padding-top: 10px;
+}
+
+.main{
+  background-color: #4e4e4e;
+
+  width: 175px;
+}
+.secondary{
+  background-color: #bd5d57;
+  width: 175px;
+}
+.profile_pic{
+  background-image: url('../images/stock_profile.jpg');
+  background-position: center;
+  background-size: cover;
+  border: solid 2px black;
+  border-radius: 10px;
+  height: 180px;
+  width: 180px;
+
+}
+.card-main{
+  width:200px;
+  height: 200px;
+  padding-left: 15px;
+  background-color: #e9e9e9;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+.card-inner{
+  width: 150px;
+  height: 170px;
+  padding-bottom: 30px;
+  border: solid 2px black;
+  border-radius: 15px;
+
+  background-color: #bd5d57;
+}
+.queue-offset{
+  padding-top: 130px;
+}
