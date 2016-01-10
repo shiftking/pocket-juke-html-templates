@@ -1,61 +1,86 @@
-//here will hold the function that will control the different states for the animation of the dif framse
-
-//global variables that will be used to keep track of the specific frames that are in certian positions
-var playing_pos = 10; //holds the value for which frame is in the playing position
-var next_pos = 9;//hold the value for which frame is in the next to be played position
-var queue_begining = 0;//hold the value for which frame is at the begining of the queue
-//var queue_array [0,1,2,3,4,5,6,7,8];//the list of frames that are in the queue, from pos 2 to 10
-
-//function that moves the frame that is in the next position to the playing position
-move_next_frame = function(){
-  move_playing_frame(); //moves the frame that is in the playing position to the begining of the queue
-  sycle_queue_frames();
-}
-//function that shuffles the queue top ten down when a new song is about to being playing
-sycle_queue_frames = function(){
-  var new_pos_frame;
-  var old_pos_frame;
-  var pos = queue_begining;
-  var done = false;
-  var count = 0;
-  while(!done){ //since the values wrap after 10 using a for lood only works for the inital case of queue_begining being 0 so a while loop will work for all cases
-    frame = "frame-" + pos;
-    new_pos_frame = "pos-" + pos + '-div';
-    if(pos - 1 < 0){
-      pos = 11;
-    }else{
-      pos = pos - 1;
-    }
-    old_pos_frame = "pos-" + pos +"-div";
-    $(frame).addClass(old_pos_frame);
-    //$(frame).addClass(new_pos_frame);
-    if(count + 1 > 9){
-      done = true;
-    }else {
-      count ++;
-    }
-  }
-  //change the position of the begingin of the queue to one less than what it currently is
-  if(queue_begining == 0){
-    queue_begining == 10;
-  }else{
-    queue_begining =-1;
-  }
-}
-//function that moves the frame that is in the playing position to the back of the queue to get used as a new song frame
-move_playing_frame = function(){
-  var playing = 'music_frame_'+playing_pos;
-  if(playing_pos == 0){ //changes the current playing to one less than what is currently is
-    palying_pos == 10;
-  }else{
-    playing_pos=-1;
-  }
-  $(playing).toggleClass('playing-pos-div');
-  //change the active class to the begining of the queue
-}
-
+var pos_playing_left = -125 ;
+var pos_playing_top = -$(window).height()*.42;
+var window_var_width = $(window).width();
 //function to handle the frames when the document is inintailly loaded
-load_frames = function(){
+function load_frames(){
+  var var_class, postion;
+  var width = $(window).width();
+  var height = $(window).height();
+  var default_top = height*0.45;
+  var default_left = -width*0.2;
+  for(var i = 0;i<11;i++){
+    var_class = "#card_" + i;
 
+    position = $(var_class).position();
+    $(var_class).animate({
+      "top": "-="+(position.top - default_top)+"px",
+      "left": "-="+(position.left - default_left)+"px"
+    },1000);
+    $(var_class).fadeIn();
+  }
+
+}
+$(function(){
+  load_frames();
+  set_z_axis();
+  initial_pos();
+  enable_player();
+});
+
+function set_z_axis(){
+  var var_class;
+  for(var i = 0;i<11;i++){
+    var_class = "#card_" + i;
+    $(var_class).css('z-index',i);
+  }
+}
+function initial_pos(){
+
+  var var_class;
+  var last_pos = $(window).width()*.45;
+  var position;
+  for(var i = 10;i>=0;i--){
+    var_class = "#card_" + i;
+    $(var_class).animate({
+      "left": "+="+last_pos+"px"
+
+    },1000);
+    last_pos -= 60;
+    if(i > 9){
+
+      position = $(var_class).position();
+      $(var_class).animate({
+
+        "left": "-="+(position.left - pos_playing_left)+"px",
+        "top": "-="+(position.top - pos_playing_top)+"px"
+      },1000);
+
+    }
+  }
+}
+function cycle(){
+  for(var i = 0;i<11;i++){
+
+  }
+}
+function reset_pos(div_edit) {
+  div_edit.animate({
+  "top": "+="+(div_edit.position.top)+"px",
+  "left": "+="+(div_edit.position.left)+"px"
+  },1000)
+  //window.alert("wait");
+
+}
+function enable_player(){
+
+  reset_pos($('.player'));
+  var position = $('.player').position();
+  //window.alert(position.left);
+  $('.player').animate({
+     "top": "+="+($(window).width()*.1)+"px",
+     "left": "+="+($(window).height()*.245)+"px"
+    //"left":"+="+()+"px"
+  },1000);
+  $('.player').fadeIn();
 
 }
