@@ -5,7 +5,7 @@ body{
   background-color: #ede7c7;
   width: 100%;
   height: 100%;
-
+  position: absolute;
 }
 .background-primary-left{
   background-color: #ca1a0e;
@@ -107,7 +107,7 @@ body{
 
 }
 .card-main{
-  position: absolute;
+  display: none;
   width:250px;
   height: 250px;
   padding-left: 25px;
@@ -115,7 +115,8 @@ body{
   background-color: #e9e9e9;
   border: solid 2px black;
   border-radius: 15px;
-  display: none;
+  float: left;
+  position: absolute;
 }
 .card-inner{
   width: 200px;
@@ -126,6 +127,7 @@ body{
   background-color: #bd5d57;
 }
 .player{
+  top: 5%;
   position: absolute;
   width: 300px;
   height: 125px;
@@ -142,6 +144,9 @@ body{
   border-radius: 25px;
   float: left;
   background-color: #8ef1c6;
+  background-image: url('../images/FastForward.png');
+  background-position: center;
+  background-size: cover;
 }
 .play{
   margin-top: 22.5px;
@@ -150,7 +155,9 @@ body{
   width: 80px;
   border-radius: 40px;
   float: left;
-  background-color: #8ef1c6;
+  background-image: url('../images/playbutton.png');
+  background-position: center;
+  background-size: cover;
 }
 .re-wind{
   margin-top: 37.5px;
@@ -160,7 +167,27 @@ body{
   border-radius: 25px;
   float: left;
   background-color: #8ef1c6;
+  background-image: url('../images/ReWind.png');
+  background-position: center;
+  background-size: cover;
 }
 .queue-offset{
   padding-top: 130px;
+}
+.user-suggestion{
+  height: 300px;
+  width: 350px;
+  background-color: #d1cebd;
+
+  position: absolute;
+  border-radius: 15px;
+}
+.queue-padding{
+  left: 2.37%;
+}
+.page-top-padding{
+  padding-top: 5%;
+}
+.suggestion-padding{
+  padding-top: 72%;
 }
